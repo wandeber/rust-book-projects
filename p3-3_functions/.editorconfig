@@ -1,0 +1,9 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# Set the default indentation style to two spaces
+[*]
+indent_style = tab
+indent_size = 2
