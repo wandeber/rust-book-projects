@@ -4,6 +4,12 @@ struct Rectangle {
 	h: u32,
 }
 
+impl Rectangle {
+	fn area(&self) -> u32 {
+		self.w * self.h
+	}
+}
+
 fn main() {
 	let width1 = 30;
 	let height1 = 50;
@@ -38,6 +44,8 @@ fn main() {
 		h: 50,
 	};
 	dbg!(&rect1);
+
+	println!("{}", rect1.area());
 }
 
 fn area(width: u32, height: u32) -> u32 {
