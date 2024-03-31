@@ -8,6 +8,25 @@ impl Rectangle {
 	fn area(&self) -> u32 {
 		self.w * self.h
 	}
+
+	fn w(&self) -> bool {
+		self.w > 0
+	}
+
+	fn can_hold(&self, other: &Rectangle) -> bool {
+		self.w > other.w && self.h > other.h
+	}
+
+	fn square(size: u32) -> Self {
+		Self {
+			w: size,
+			h: size,
+		}
+	}
+
+	fn set_width(&mut self, width: u32) {
+		self.w = width;
+	}
 }
 
 fn main() {
@@ -46,6 +65,24 @@ fn main() {
 	dbg!(&rect1);
 
 	println!("{}", rect1.area());
+
+	if rect1.w() {
+		println!("The rectangle has a nonzero width; it is {}", rect1.w);
+	}
+
+	let mut rect1 = Rectangle {
+		w: 30,
+		h: 50,
+	};
+	let rect2 = Rectangle {
+		w: 10,
+		h: 40,
+	};
+	let rect3 = Rectangle::square(40);
+	println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
+	println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
+	println!("Can rect1 hold rect3? {}", Rectangle::can_hold(&rect1, &rect3));
+	Rectangle::set_width(&mut rect1, 2);
 }
 
 fn area(width: u32, height: u32) -> u32 {
